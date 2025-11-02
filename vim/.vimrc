@@ -20,21 +20,32 @@ set autoread
 
 nnoremap <Leader>l :nohlsearch<CR>
 
-nnoremap <leader>f :find *
-nnoremap <leader>F :find <C-R>=expand('%:p:h').'/**/*'<CR>
+nnoremap <leader>b :Buffers<CR>
+nnoremap <leader>f :Files<CR>
 
-nnoremap <leader>s :sfind *
-nnoremap <leader>S :sfind <C-R>=expand('%:p:h').'/**/*'<CR>
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 
 call plug#begin()
+Plug 'vim-ruby/vim-ruby'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
-Plug 'pangloss/vim-javascript'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
 
 autocmd InsertEnter,InsertLeave * set cul!
 
-syntax off
+" Set indentation rules for JS, TS, TSX
+autocmd FileType javascript,typescript,typescriptreact setlocal tabstop=2 shiftwidth=2 softtabstop=2 expandtab autoindent smartindent
+
+" Use Prettier for formatting
+autocmd FileType javascript,typescript,typescriptreact setlocal formatprg=prettier\ --stdin-filepath\ %\ --parser\ babel-ts
+
+" Need to set this up for OSX, see 
+" https://stackoverflow.com/questions/69145357/vim-almost-hangs-with-100-line-typescript-file
+set regexpengine=0
+filetype plugin indent on
+
