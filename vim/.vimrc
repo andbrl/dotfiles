@@ -1,3 +1,11 @@
+set nocompatible
+
+syntax enable
+filetype plugin on
+
+set path+=**
+set wildmenu
+
 set encoding=utf-8
 set background=dark
 set clipboard=
