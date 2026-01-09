@@ -1,0 +1,26 @@
+-- a configuration file for keybindings
+
+-- base
+vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
+vim.keymap.set("n", "<leader>l", vim.cmd.nohlsearch)
+
+
+-- telescope 
+local telescope = require "telescope.builtin"
+vim.keymap.set("n", "<leader>tf", telescope.find_files, {})
+-- find out what this is for?
+vim.keymap.set("n", "<C-g>", telescope.git_files, {})
+vim.keymap.set("n", "<leadert>s", function()
+   telescope.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+vim.keymap.set("n", "<leader>tb", telescope.buffers, {})
+vim.keymap.set("n", "<leader>tr", telescope.lsp_references, {})
+
+-- lsp
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "<C-Space>", vim.lsp.buf.code_action)
+
+--easy-dotnet
+-- todo: move this to setup inside the plugin configuration itself
+local dotnet = require "easy-dotnet"
+vim.keymap.set("n", "<leader>db", dotnet.build_solution_quickfix)
