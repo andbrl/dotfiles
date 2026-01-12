@@ -7,10 +7,10 @@ vim.keymap.set("n", "<leader>l", vim.cmd.nohlsearch)
 
 -- telescope 
 local telescope = require "telescope.builtin"
-vim.keymap.set("n", "<leader>tf", telescope.find_files, {})
--- find out what this is for?
+vim.keymap.set("n", "<C-p>", telescope.find_files, {})
+vim.keymap.set("n", "<C-b>", telescope.buffers, {})
 vim.keymap.set("n", "<C-g>", telescope.git_files, {})
-vim.keymap.set("n", "<leadert>s", function()
+vim.keymap.set("n", "<C-s>", function()
    telescope.grep_string({ search = vim.fn.input("Grep > ") })
 end)
 vim.keymap.set("n", "<leader>tb", telescope.buffers, {})

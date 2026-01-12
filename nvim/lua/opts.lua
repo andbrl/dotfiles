@@ -26,3 +26,4 @@ vim.opt.colorcolumn = "120"
 vim.opt.updatetime = 50
 
 vim.opt.autoread = true
+
