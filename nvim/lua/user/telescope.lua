@@ -18,8 +18,11 @@ function M.config()
                   ["<C-k>"] = actions.move_selection_previous,
 
                   ["<C-q>"] = actions.close,
+
+                  ["<C-d>"] = actions.delete_buffer,
                 },
                 n = {
+                  ["<C-d>"] = actions.delete_buffer,
                   ["<esc>"] = actions.close,
                   ["j"] = actions.move_selection_next,
                   ["k"] = actions.move_selection_previous,

@@ -13,8 +13,7 @@ vim.keymap.set("n", "<C-g>", telescope.git_files, {})
 vim.keymap.set("n", "<C-s>", function()
    telescope.grep_string({ search = vim.fn.input("Grep > ") })
 end)
-vim.keymap.set("n", "<leader>tb", telescope.buffers, {})
-vim.keymap.set("n", "<leader>tr", telescope.lsp_references, {})
+vim.keymap.set("n", "<leader>r", telescope.lsp_references, {})
 
 -- lsp
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
