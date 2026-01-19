@@ -4,7 +4,6 @@
 vim.keymap.set("n", "<leader>e", vim.cmd.Ex)
 vim.keymap.set("n", "<leader>l", vim.cmd.nohlsearch)
 
-
 -- telescope 
 local telescope = require "telescope.builtin"
 vim.keymap.set("n", "<C-p>", telescope.find_files, {})

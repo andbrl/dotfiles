@@ -6,6 +6,8 @@ spec("user.telescope")
 spec("user.lsp-zero")
 spec("user.easy-dotnet")
 spec("user.dap")
+spec("user.nio")
+spec("user.dap-ui")
 
 require "plugin.lazy"
 require "user.cmp"

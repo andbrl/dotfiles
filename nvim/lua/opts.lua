@@ -24,6 +24,7 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "120"
 vim.opt.updatetime = 50
+vim.opt.relativenumber = true
 
 vim.opt.autoread = true
 
