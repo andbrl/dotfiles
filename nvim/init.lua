@@ -8,6 +8,7 @@ spec("user.easy-dotnet")
 spec("user.dap")
 spec("user.nio")
 spec("user.dap-ui")
+spec("user.oil")
 
 require "plugin.lazy"
 require "user.cmp"

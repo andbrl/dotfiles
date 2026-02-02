@@ -9,9 +9,7 @@ local telescope = require "telescope.builtin"
 vim.keymap.set("n", "<C-p>", telescope.find_files, {})
 vim.keymap.set("n", "<C-b>", telescope.buffers, {})
 vim.keymap.set("n", "<C-g>", telescope.git_files, {})
-vim.keymap.set("n", "<C-s>", function()
-   telescope.grep_string({ search = vim.fn.input("Grep > ") })
-end)
+vim.keymap.set("n", "<C-s>", telescope.live_grep, {})
 vim.keymap.set("n", "<leader>r", telescope.lsp_references, {})
 
 -- lsp
