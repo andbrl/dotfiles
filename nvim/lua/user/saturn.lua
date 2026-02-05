@@ -21,12 +21,11 @@ vim.o.statusline = "%!v:lua.saturn_goes_brrr()"
 local timer = vim.loop.new_timer()
 timer:start(
     0,
-    1000,
+    100,
     vim.schedule_wrap(function()
         -- needed here to avoid jitter
         pos = (pos + 1) % math.max(width, 1)
         vim.cmd("redrawstatus")
     end)
 )
-
 
