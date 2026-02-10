@@ -4,6 +4,9 @@ local M = {
     lazy = false,
     priority = 1000,
     config = function()
+        -- default to andbrl for now
+        vim.cmd.colorscheme('andbrl')
+
         local toggled = false
         vim.api.nvim_create_user_command('ToggleColo', function()
             if not toggled then

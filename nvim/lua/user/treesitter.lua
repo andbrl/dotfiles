@@ -8,7 +8,7 @@ function M.config()
     local treesitter = require("nvim-treesitter")
     treesitter.install{ 'go', 'javascript', 'c_sharp' }
     treesitter.setup {
-        indent = { enable = true } 
+        indent = { enable = true },
     }
 end
 
