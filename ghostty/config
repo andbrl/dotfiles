@@ -1,4 +1,3 @@
 font-family = "Hack"
 font-size = "14"
-theme = Konsolas
-background = "#000000"
+theme = acme
