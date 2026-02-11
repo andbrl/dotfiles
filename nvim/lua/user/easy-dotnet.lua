@@ -1,19 +1,23 @@
 local M = {
 	"GustavEikaas/easy-dotnet.nvim",
-    dependencies = { "nvim-lua/plenary.nvim", 'nvim-telescope/telescope.nvim' },
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
 }
 
 function M.config()
-    require("easy-dotnet").setup()
+	require("easy-dotnet").setup({
+		lsp = {
+			auto_refresh_codelens = false,
+		},
+	})
 
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "cs",
-      callback = function()
-        vim.keymap.set("n", "<leader>tc", function()
-          require("easy-dotnet").test_cursor()
-        end, { buffer = true, desc = "Run test at cursor" })
-      end,
-    })
-  end
+	vim.api.nvim_create_autocmd("FileType", {
+		pattern = "cs",
+		callback = function()
+			vim.keymap.set("n", "<leader>tc", function()
+				require("easy-dotnet").test_cursor()
+			end, { buffer = true, desc = "Run test at cursor" })
+		end,
+	})
+end
 
 return M

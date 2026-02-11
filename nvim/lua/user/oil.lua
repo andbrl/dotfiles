@@ -1,9 +1,9 @@
 local M = {
-    "stevearc/oil.nvim"
+	"stevearc/oil.nvim",
 }
 
 function M.config()
-    require("oil").setup()
+	require("oil").setup()
 end
 
 return M

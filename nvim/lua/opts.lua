@@ -27,5 +27,3 @@ vim.opt.updatetime = 50
 vim.opt.relativenumber = true
 
 vim.opt.autoread = true
-
-vim.cmd.colorscheme("torte")
