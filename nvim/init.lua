@@ -1,7 +1,7 @@
 require "opts"
 require "launch"
 
-spec("user.treesitter")
+--spec("user.treesitter")
 spec("user.telescope")
 spec("user.lsp-zero")
 spec("user.easy-dotnet")
@@ -9,6 +9,7 @@ spec("user.dap")
 spec("user.nio")
 spec("user.dap-ui")
 spec("user.oil")
+spec("user.acme")
 
 require "plugin.lazy"
 require "user.cmp"
@@ -23,4 +24,3 @@ vim.api.nvim_create_autocmd("CursorHold", {
         })
     end,
 })
-
