@@ -9,6 +9,7 @@ function M.config()
 	treesitter.install({ "go", "javascript", "c_sharp" })
 	treesitter.setup({
 		indent = { enable = true },
+        highlight = { enable = false, },
 	})
 end
 

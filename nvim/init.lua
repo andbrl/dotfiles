@@ -1,7 +1,7 @@
 require "opts"
 require "launch"
 
---spec("user.treesitter")
+spec("user.treesitter")
 spec("user.telescope")
 spec("user.lsp-zero")
 spec("user.easy-dotnet")
@@ -24,3 +24,15 @@ vim.api.nvim_create_autocmd("CursorHold", {
         })
     end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client then
+      client.server_capabilities.semanticTokensProvider = nil
+    end
+  end,
+})
+
+-- turn off syntax highlighting from treesitter
+vim.treesitter.stop()
