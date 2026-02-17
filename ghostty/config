@@ -1,4 +1,7 @@
 font-family = "Comic Code"
 font-size = "14"
-theme = "acme"
-
+theme = "Pro"
+cursor-color = "#fc0fc0"
+cursor-style-blink = false
+cursor-style = "block"
+shell-integration-features = "no-cursor"

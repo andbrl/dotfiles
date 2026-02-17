@@ -9,7 +9,6 @@ spec("user.dap")
 spec("user.nio")
 spec("user.dap-ui")
 spec("user.oil")
-spec("user.acme")
 
 require "plugin.lazy"
 require "user.cmp"
@@ -36,3 +35,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 -- turn off syntax highlighting from treesitter
 vim.treesitter.stop()
+vim.cmd("syntax off")
+
+vim.o.termguicolors = false
