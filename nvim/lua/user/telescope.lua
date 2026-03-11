@@ -9,7 +9,7 @@ function M.config()
 	local actions = require("telescope.actions")
 	require("telescope").setup({
 		defaults = {
-			layout_strategy = "vertical",
+			layout_strategy = "bottom_pane",
 			mappings = {
 				i = {
 					["<C-n>"] = actions.cycle_history_next,
@@ -31,6 +31,11 @@ function M.config()
 				},
 			},
 		},
+        pickers = {
+            find_files = {
+                layout_config = { prompt_position = "bottom" },
+            },
+        },
 	})
 end
 
