@@ -2,7 +2,7 @@ local M = { }
 
 --[[
     whichOrg: specify the org;
-    terms: any string to search with
+    terms: params of strings to search with
 --]]
 function M.search(whichOrg, ...)
     local terms = { ... }
