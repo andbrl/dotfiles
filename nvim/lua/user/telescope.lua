@@ -30,9 +30,16 @@ function M.config()
 					["q"] = actions.close,
 				},
 			},
+            preview = false,
 		},
         pickers = {
             find_files = {
+                layout_config = { prompt_position = "bottom" },
+            },
+            live_grep = {
+                layout_config = { prompt_position = "bottom" },
+            },
+            buffers = {
                 layout_config = { prompt_position = "bottom" },
             },
         },
