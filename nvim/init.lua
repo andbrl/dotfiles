@@ -48,3 +48,20 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.softtabstop = 2
   end,
 })
+
+vim.api.nvim_create_user_command("Github", function(opts)
+  local args = opts.fargs
+
+  if #args < 2 then
+    vim.notify("Usage: :Github <org> <term1> [term2] ...", vim.log.levels.ERROR)
+    return
+  end
+
+  local org = args[1]
+  table.remove(args, 1)
+
+  require("user.gh-search").search(org, unpack(args))
+end, {
+  nargs = "+",
+  complete = nil,
+})
