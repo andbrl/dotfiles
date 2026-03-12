@@ -49,18 +49,17 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- note to self: it'd be cool to search on current visual selection
+-- but I cba right now
 vim.api.nvim_create_user_command("Github", function(opts)
   local args = opts.fargs
-
-  if #args < 2 then
-    vim.notify("Usage: :Github <org> <term1> [term2] ...", vim.log.levels.ERROR)
-    return
+  local gh = require("user.gh-search")
+  if args[1] == "-g" then
+      table.remove(args, 1)
+      gh.search(unpack(args))
+  else
+      gh.search_with_org("trainline-private", unpack(args))
   end
-
-  local org = args[1]
-  table.remove(args, 1)
-
-  require("user.gh-search").search(org, unpack(args))
 end, {
   nargs = "+",
   complete = nil,
