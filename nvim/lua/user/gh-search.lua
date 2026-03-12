@@ -7,7 +7,7 @@ local M = { }
 function M.search(whichOrg, ...)
     local terms = { ... }
     local query = table.concat(terms, "+")
-    local url = "https://github.com/search?q=%3A"
+    local url = "https://github.com/search?q=org%3A"
         .. whichOrg
         .. "+"
         .. query
