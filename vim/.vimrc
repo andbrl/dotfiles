@@ -1,6 +1,5 @@
 set nocompatible
 
-syntax enable
 filetype plugin on
 
 set path+=**
@@ -28,9 +27,6 @@ set autoread
 
 nnoremap <Leader>l :nohlsearch<CR>
 
-nnoremap <leader>b :Buffers<CR>
-nnoremap <leader>f :Files<CR>
-
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
   silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
@@ -43,6 +39,17 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries'}
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 call plug#end()
+
+" fzf configuration
+nnoremap <C-b> :Buffers<CR>
+nnoremap <C-p> :Files<CR>
+nnoremap <C-s> :Rg<CR>
+let g:fzf_layout = { 'down': '40%' }
+let g:fzf_preview_window = []
+
+" vim-go configuration
+let g:go_fmt_autosave = 1
+let g:go_imports_autosave = 1
 
 autocmd InsertEnter,InsertLeave * set cul!
 
@@ -57,3 +64,4 @@ autocmd FileType javascript,typescript,typescriptreact setlocal formatprg=pretti
 set regexpengine=0
 filetype plugin indent on
 
+syntax off
